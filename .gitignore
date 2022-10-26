@@ -1,0 +1,12 @@
+
+.idea/awesome-django.iml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+restaurant/restaurant/__pycache__/__init__.cpython-310.pyc
+restaurant/restaurant/__pycache__/settings.cpython-310.pyc
+restaurant/restaurant/__pycache__/urls.cpython-310.pyc
+restaurant/restaurant/__pycache__/wsgi.cpython-310.pyc
+*.pyc
