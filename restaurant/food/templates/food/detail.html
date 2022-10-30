@@ -3,13 +3,13 @@
 {% block body %}
         <div class="row">
             <div class="col-md-3 offset-md-2">
-                <img src="{% static 'food/img/' %}{{ item.item_image }}" height="150px">
+                <img src="{% static 'food/img/' %}{{ object.item_image }}" height="150px">
             </div>
             <div class="col-md-4">
-                <h3>{{ item.item_name }}</h3>
-                <h5>{{ item.item_desc }}</h5>
-                <h6>{{ item.item_price }}</h6>
-                {{ item.item_image }}
+                <h3>{{ object.item_name }}</h3>
+                <h5>{{ object.item_desc }}</h5>
+                <h6>{{ object.item_price }}</h6>
+                {{ object.item_image }}
             </div>
             <div class="col-md-2">
                 <a href="{% url 'food:delete_item' item.id %}" class="btn btn-success">Delete</a>
