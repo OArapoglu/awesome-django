@@ -1,12 +1,17 @@
 {% extends 'food/base.html' %}
 {% load static %}
 {% block body %}
+    <form action="" method="GET">
+        <input type="search" name="food_name">
+        <button type="submit">Search</button>
+    </form>
     {% for item in item_list%}
         <div class="row">
             <div class="col-md-3 offset-md-2">
                 <img src="{% static 'food/img/' %}{{ item.item_image }}" height="150px" width="250px" vspace="2px">
             </div>
             <div class="col-md-4">
+                <h3>{{ item.id }} </h3>
                 <h3>{{ item.item_name }}</h3>
                 <h5>{{ item.item_desc }}</h5>
                 <h6>{{ item.item_price }}</h6>
@@ -18,5 +23,22 @@
             </div>
         </div>
     {% endfor %}
+    <div class="pagination offset-md-2" >
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
 {% endblock %}
 

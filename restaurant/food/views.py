@@ -7,9 +7,16 @@ from django.views.generic.edit import CreateView
 
 
 class Index(ListView):
-    model = Item
     template_name = "food/index.html"
     context_object_name = "item_list"
+    paginate_by = 2
+
+    def get_queryset(self):
+        food_name = self.request.GET.get("food_name")
+        if food_name and food_name != "":
+            return Item.objects.filter(item_name__icontains=food_name)
+        else:
+            return Item.objects.all()
 
 
 class Detail(DetailView):
